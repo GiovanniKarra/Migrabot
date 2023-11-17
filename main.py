@@ -24,6 +24,7 @@ async def todo(ctx, *arg):
     await ctx.message.delete()
     message = await ctx.send(f"TODO : {' '.join(arg)}")
     await message.add_reaction("✅")
+    print(" ".join(arg))
 
 @bot.event
 async def on_reaction_add(reaction, user):
@@ -32,5 +33,6 @@ async def on_reaction_add(reaction, user):
 
     if reaction.message.content[:4] == "TODO" and reaction.emoji == "✅":
         await reaction.message.delete()
+        print("Removed TODO !")
 
 bot.run(TOKEN)
