@@ -1,13 +1,13 @@
 import os
 
-from dotenv import load_dotenv
 import discord
 from discord.ext import commands
 
 
-load_dotenv()
+TOKEN = ""
+with open("data.txt", "r") as f:
+    TOKEN = f.read()
 
-TOKEN = os.getenv("MIGRABOT_TOKEN")
 INTENTS = discord.Intents.default()
 INTENTS.message_content = True
 
